@@ -23,7 +23,7 @@ public class Place {
     }
     //Constructor for initial point
     public Place (double latitude, double longitude, int stars, int index) {
-        this.placeName="Starting Point";
+        this.placeName="Your Position";
         this.latit=latitude;
         this.longt=longitude;
         this.distanceFromInitial=0.0; // Starting position

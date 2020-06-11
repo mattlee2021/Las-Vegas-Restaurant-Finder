@@ -7,9 +7,10 @@ import com.sun.corba.se.impl.orbutil.graph.Graph;
 import java.util.Scanner;
 import java.lang.Integer;
 import java.lang.Double;
+import java.lang.Exception;
 
 public class Main {
-    public static void main(String[] args) throws java.io.IOException {
+    public static void main(String[] args) throws Exception {
         /**
          * Code used to prompt user for input based on different criteria to find
          * restaurants in Las Vegas
@@ -31,6 +32,9 @@ public class Main {
 
         System.out.println("How many restaurants do you want to visit?\n There are about 680 3-star, 1000 4-star, and 100 5-star restaurants.");
         int numOfPlaces = Integer.parseInt(in.nextLine());
+
+        //Counts the number of restaurants with the given star int passed into int stars
+        int counter=0;
 
         /**
          * CSV File passed in called ResOpenYelp.csv
@@ -66,13 +70,14 @@ public class Main {
                             Double.parseDouble(data[2]), Integer.parseInt(data[3]));
                     // Calculating the distance from the initial point
                     initial.coordDistance(toInsert);
+                    counter++;
 
                     /* Comment out array.add(toInsert)  to run the heap;
                      * Comment out heap.add(toInsert) to run the graph;
                      */
 
-                    // array.add(toInsert);
-                      heap.add(toInsert);
+                      list.add(toInsert);
+                      //heap.add(toInsert);
                 }
             } catch (java.util.NoSuchElementException e) {
 
@@ -84,16 +89,24 @@ public class Main {
          * Run 2 lines below to execute List Data Structure
          */
 
-       // list.bubbleSort();
-       // list.print(numOfPlaces);
+        list.bubbleSort();
+        if (numOfPlaces > counter) {
+            throw new Exception(("There are only " + counter + " number of restaurants that have "
+                    + star +  " stars." + "\n Please enter a number less than or equal to " + counter));
+        }
+        list.print(numOfPlaces);
+
 
         /**
          * Run code in the line below to run the heap structure and
          * comment out the 2 lines of code above
          */
 
-         heap.printHeap(numOfPlaces);
+         //heap.printHeap(numOfPlaces);
+
     }
+
+
 }
 
 

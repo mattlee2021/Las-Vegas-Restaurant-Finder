@@ -99,7 +99,7 @@ public class Heap {
     public void printHeap(int numOfPlaces) {
         System.out.println("Here are the " + numOfPlaces + " places nearest to your location with " +
                 array[0].stars + " stars.");
-        for (int i=0; i<numOfPlaces; i++) {
+        for (int i=0; i<=numOfPlaces; i++) {
             array[i].printPlace();
         }
     }

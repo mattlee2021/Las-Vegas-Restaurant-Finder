@@ -55,7 +55,7 @@ public class List {
     public void print(int numOfPlaces) {
         System.out.println("Here are the " + numOfPlaces + " places nearest to your location with " +
                 this.col[0].stars + " stars.");
-        for (int i=0; i<numOfPlaces; i++) {
+        for (int i=0; i<=numOfPlaces; i++) {
             col[i].printPlace();
         }
     }
